@@ -2,7 +2,7 @@ $(function() {
 console.log('jQuery linked');
 
 $('.col').click(function() {
-	colIndex = $(this).attr()('data-pos');
+	colIndex = $(this).attr('data-pos');
 	getNextOpen($(this));
 	dropGamePiece($(this));
 	});
@@ -35,7 +35,7 @@ var curBox = boxes.eq(boxIndex);
 	        else {
 	        	
 	        	$(curBox).css('background-color', 'red');
-	        	board[1][1] = 2;
+	        	board[boxIndex][colIndex] = "2";
 	        }
 	    console.log('CURRENT BOARD');    
 	    console.log(printBoard());
@@ -60,6 +60,11 @@ function getNextOpen(column){
 
 	 			}
 	 	})
+}
+function checkHoriz() {
+	for (var i = 0; i < board.length; i++)  //rows
+		for (var j =0; j < board[0].length - 3 ; j++)  //columns
+			if board[boxIndex][colIndex] == board[boxIndex][colIndex+1];
 }
    
 
