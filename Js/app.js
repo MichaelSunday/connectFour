@@ -1,20 +1,57 @@
-$(function() { 
-console.log('jQuery linked');
+ console.log('jQuery linked');
+
+
 
 $('.col').click(function() {
 	colIndex = $(this).attr('data-pos');
 	getNextOpen($(this));
 	dropGamePiece($(this));
+	console.log(checkHoriz());
 	});
 
-var board = [ ["", "", "", "", "", "", ""],
-		      ["", "", "", "", "", "", ""],
-		      ["", "", "", "", "", "", ""],
-		      ["", "", "", "", "", "", ""],
-		      ["", "", "", "", "", "", ""],
-		      ["", "", "", "", "", "", ""]
+var board = [ [0, 0, 0, 0, 0, 0, 0],
+		      [0, 0, 0, 0, 0, 0, 0],
+		      [0, 0, 0, 0, 0, 0, 0],
+		      [0, 0, 0, 0, 0, 0, 0],
+		      [0, 0, 0, 0, 0, 0, 0],
+		      [0, 0, 0, 0, 0, 0, 0]
 		];  
 
+
+// HARD CODE -  function checkHoriz() {
+// 	for (i = 0; i < board.length; i++) {
+// 			if  (board[5][0] != 0 &&
+// 				(board[5][0] == board[5][1]) &&
+// 				(board[5][0] == board[5][2]) &&
+// 				(board[5][0] == board[5][3]))
+// 					{ return true } 
+// 			else { return false } 
+						
+// }
+
+//  JULI's TRY - function checkHoriz() {
+// 	for (i = 0; i < board.length; i++)  { //rows
+// 		for (j = 0; j < board.length-3; j++)  {//columns
+// 			if (board[i][j] == 0) { console.log('cool') }
+// 			else if (board[i][j] == board[i][j+1] &&
+// 				    board[i][j] == board[i][j+2] &&
+// 				    board[i][j] == board[i][j+3] )
+// 					{ return true } 
+// 			else { return false } 
+// 		}
+//  }	
+// }
+
+function checkHoriz() {
+	for (i = 0; i < board.length; i++)   //rows
+		for (j = 0; j < board.length - 3; j++)  //columns
+			if ( (board[i][j] == board[i][j+1]) &&
+				 (board[i][j] == board[i][j+2]) &&
+				 (board[i][j] == board[i][j+3]))
+					{ return true } 
+			else { return false } 
+						
+}
 
 function printBoard() {
 for (i = 0; i < board.length; i++) { console.log(board[i]) }
@@ -29,13 +66,13 @@ var curBox = boxes.eq(boxIndex);
 	clickCount++;
 		if (clickCount % 2 === 1) {
 			$(curBox).css('background-color', 'blue');
-			board[boxIndex][colIndex] = "1";
+			board[boxIndex][colIndex] = 1;
 		}
 	
 	        else {
 	        	
 	        	$(curBox).css('background-color', 'red');
-	        	board[boxIndex][colIndex] = "2";
+	        	board[boxIndex][colIndex] = 2;
 	        }
 	    console.log('CURRENT BOARD');    
 	    console.log(printBoard());
@@ -61,17 +98,15 @@ function getNextOpen(column){
 	 			}
 	 	})
 }
-function checkHoriz() {
-	for (var i = 0; i < board.length; i++)  //rows
-		for (var j =0; j < board[0].length - 3 ; j++)  //columns
-			if board[boxIndex][colIndex] == board[boxIndex][colIndex+1];
-}
+
+
+
    
 
 
 
 
-});
+
 
 
 
