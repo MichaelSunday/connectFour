@@ -41,16 +41,35 @@ var board = [ [0, 0, 0, 0, 0, 0, 0],
 // 		}
 //  }	
 // }
+function getCur() {	
+
+if (clickCount % 2 === 1) {
+			return 1;
+		}
+	
+	        else {
+	        	
+	        	return 2;
+	        }
+}
 
 function checkHoriz() {
-	for (i = 0; i < board.length; i++)   //rows
-		for (j = 0; j < board.length - 3; j++)  //columns
+	var sym = getCur();
+	for (var i = 0; i < board.length; i++)  { //rows		
+		for (var j = 0; j < board[i].length - 3; j++)  {//columns
+			
 			if ( (board[i][j] == board[i][j+1]) &&
 				 (board[i][j] == board[i][j+2]) &&
-				 (board[i][j] == board[i][j+3]))
-					{ return true } 
-			else { return false } 
+				 (board[i][j] == board[i][j+3]) &&
+				 (board[i][j] == sym))
+					{ return true }
+				
+
+		}
+
 						
+	}
+	return false;
 }
 
 function printBoard() {
