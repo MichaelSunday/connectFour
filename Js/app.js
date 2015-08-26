@@ -88,7 +88,20 @@ function checkVert() {
 	return false;
 }
 
-function check
+function checkDiagRigthDown() {
+	var sym = getCur();
+	for (var i = 0; i < board.length - 3; i++) {
+		for (var j =0; j < board[i].length - 3; j++) {
+			if ( (board[i][j] == board[i+1][j+1]) &&
+				 (board[i][j] == board[i+2][j+2]) &&
+				 (board[i][j] == board[i+3][j+3]) &&
+				 (board[i][j] == sym))
+					{ return true }
+		}
+	}
+	return false
+}
+
 
 function printBoard() {
 for (i = 0; i < board.length; i++) { console.log(board[i]) }
