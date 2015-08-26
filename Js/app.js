@@ -88,6 +88,8 @@ function checkVert() {
 	return false;
 }
 
+function check
+
 function printBoard() {
 for (i = 0; i < board.length; i++) { console.log(board[i]) }
  }	
