@@ -8,6 +8,8 @@ $('.col').click(function() {
 	dropGamePiece($(this));
 	console.log(checkHoriz());
 	console.log(checkVert());
+	console.log(checkDiagRightDown());
+	console.log(checkDiagRightUp());
 
 	});
 
@@ -18,31 +20,6 @@ var board = [ [0, 0, 0, 0, 0, 0, 0],
 		      [0, 0, 0, 0, 0, 0, 0],
 		      [0, 0, 0, 0, 0, 0, 0]
 		];  
-
-
-// HARD CODE -  function checkHoriz() {
-// 	for (i = 0; i < board.length; i++) {
-// 			if  (board[5][0] != 0 &&
-// 				(board[5][0] == board[5][1]) &&
-// 				(board[5][0] == board[5][2]) &&
-// 				(board[5][0] == board[5][3]))
-// 					{ return true } 
-// 			else { return false } 
-						
-// }
-
-//  JULI's TRY - function checkHoriz() {
-// 	for (i = 0; i < board.length; i++)  { //rows
-// 		for (j = 0; j < board.length-3; j++)  {//columns
-// 			if (board[i][j] == 0) { console.log('cool') }
-// 			else if (board[i][j] == board[i][j+1] &&
-// 				    board[i][j] == board[i][j+2] &&
-// 				    board[i][j] == board[i][j+3] )
-// 					{ return true } 
-// 			else { return false } 
-// 		}
-//  }	
-// }
 function getCur() {	
 
 if (clickCount % 2 === 1) {
@@ -88,7 +65,7 @@ function checkVert() {
 	return false;
 }
 
-function checkDiagRigthDown() {
+function checkDiagRightDown() {
 	var sym = getCur();
 	for (var i = 0; i < board.length - 3; i++) {
 		for (var j =0; j < board[i].length - 3; j++) {
@@ -102,6 +79,19 @@ function checkDiagRigthDown() {
 	return false
 }
 
+function checkDiagRightUp() {
+	var sym = getCur();
+	for (var i = 0; i < board.length - 3; i++) {
+		for (var j =0; j < board[i].length - 3; j++) {
+			if ( (board[i][j] == board[i-1][j+1]) &&
+				 (board[i][j] == board[i-2][j+2]) &&
+				 (board[i][j] == board[i-3][j+3]) &&
+				 (board[i][j] == sym))
+					{ return true }
+		}
+	}
+	return false
+}
 
 function printBoard() {
 for (i = 0; i < board.length; i++) { console.log(board[i]) }
