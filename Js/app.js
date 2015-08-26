@@ -76,7 +76,7 @@ function checkHoriz() {
 
 function checkVert() {
 	var sym = getCur();
-	for (var i = 0; i < board[i].length - 3; i++) {
+	for (var i = 0; i < board.length - 3; i++) {
 		for (var j = 0; j < board.length; j++) {
 			if ( (board[i][j] == board[i+1][j]) &&
 				 (board[i][j] == board[i+2][j]) &&
