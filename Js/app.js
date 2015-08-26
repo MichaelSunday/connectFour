@@ -20,6 +20,7 @@ var board = [ [0, 0, 0, 0, 0, 0, 0],
 		      [0, 0, 0, 0, 0, 0, 0],
 		      [0, 0, 0, 0, 0, 0, 0]
 		];  
+
 function getCur() {	
 
 if (clickCount % 2 === 1) {
@@ -41,7 +42,7 @@ function checkHoriz() {
 				 (board[i][j] == board[i][j+2]) &&
 				 (board[i][j] == board[i][j+3]) &&
 				 (board[i][j] == sym))
-					{ return true }
+					{ showWinner(); return true }
 				
 
 		}
@@ -139,8 +140,14 @@ function getNextOpen(column){
 	 	})
 }
 
+function hideWinner() {
+	$(".hide").hide(); 
+}
+hideWinner();
 
-
+function showWinner() {
+	$(".hide").show();
+}
    
 
 
