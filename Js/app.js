@@ -60,7 +60,7 @@ function checkVert() {
 				 (board[i][j] == board[i+2][j]) &&
 				 (board[i][j] == board[i+3][j]) &&
 				 (board[i][j] == sym))
-					{ return true }
+					{ showWinner(); playVid(); return true }
 		}
 	}
 	return false;
@@ -74,7 +74,7 @@ function checkDiagRightDown() {
 				 (board[i][j] == board[i+2][j+2]) &&
 				 (board[i][j] == board[i+3][j+3]) &&
 				 (board[i][j] == sym))
-					{ return true }
+					{ showWinner(); return true }
 		}
 	}
 	return false
@@ -88,7 +88,7 @@ function checkDiagRightUp() {
 				 (board[i][j] == board[i-2][j+2]) &&
 				 (board[i][j] == board[i-3][j+3]) &&
 				 (board[i][j] == sym))
-					{ return true }
+					{ showWinner(); return true }
 		}
 	}
 	return false
@@ -148,6 +148,10 @@ hideWinner();
 function showWinner() {
 	$(".hide").show();
 }
+var vid = document.getElementById("myVideo");
+function playVid() { 
+    vid.play();
+} 
    
 
 
