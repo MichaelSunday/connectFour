@@ -36,3 +36,22 @@ body {
 	background-image: URL("http://media.giphy.com/media/krI1lBPsluByg/giphy.gif");
 	background-size: 100%;
 }
+.flip {
+	transform-style: preserve-3d;
+	transition: all 1.0s linear;
+	width: 50px;
+	height: 50px;
+	display: block;
+	background-color: white;
+    border: 7px solid beige;
+    border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+

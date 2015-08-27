@@ -105,6 +105,7 @@ function dropGamePiece(column) {
 var boxes = $(column).children();
 var curBox = boxes.eq(boxIndex);
 	clickCount++;
+	// $(this).css("transform", "rotateY(180dec");
 		if (clickCount % 2 === 1) {
 			$(curBox).css('background-color', 'blue');
 			board[boxIndex][colIndex] = 1;
