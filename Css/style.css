@@ -27,10 +27,12 @@ body {
 }
 .hide {
 	width: 300px;
-	height: 100px;
+	height: 200px;
 	border: 7px solid black;
 	margin: 0 auto;
 	text-align: center;
 	font-size: 75px;
-	color: purple;
+	color: white;
+	background-image: URL("http://media.giphy.com/media/krI1lBPsluByg/giphy.gif");
+	background-size: 100%;
 }

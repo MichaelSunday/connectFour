@@ -42,7 +42,7 @@ function checkHoriz() {
 				 (board[i][j] == board[i][j+2]) &&
 				 (board[i][j] == board[i][j+3]) &&
 				 (board[i][j] == sym))
-					{ showWinner(); return true }
+					{ showWinner(); playVid(); return true }
 				
 
 		}
@@ -74,7 +74,7 @@ function checkDiagRightDown() {
 				 (board[i][j] == board[i+2][j+2]) &&
 				 (board[i][j] == board[i+3][j+3]) &&
 				 (board[i][j] == sym))
-					{ showWinner(); return true }
+					{ showWinner(); playVid(); return true }
 		}
 	}
 	return false
@@ -88,7 +88,7 @@ function checkDiagRightUp() {
 				 (board[i][j] == board[i-2][j+2]) &&
 				 (board[i][j] == board[i-3][j+3]) &&
 				 (board[i][j] == sym))
-					{ showWinner(); return true }
+					{ showWinner(); playVid(); return true }
 		}
 	}
 	return false
